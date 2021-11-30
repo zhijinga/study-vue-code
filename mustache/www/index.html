@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手写mustache源码</title>
+</head>
+
+<body>
+  <div id="box">
+
+  </div>
+  <script src="./xuni/bundle.js"></script>
+  <script type="text/template"></script>
+  <script>
+    var template = `
+      <div>
+        <ul>
+                {{#students}}
+            <li>
+                学生{{name}}的爱好是
+                <ol>
+                  {{#hobbies}}
+                  <li>{{.}}</li>
+                  {{/hobbies}}
+                </ol>
+              </li>
+              {{/students}}
+          </ul>
+        </div>
+
+    `
+    var data = {
+      students: [
+        { 'name': '小明', hobbies: ['唱歌', '喝酒', '开心'] },
+        { 'name': '小红', hobbies: ['游泳', '游戏'] },
+        { 'name': '小刚', hobbies: ['泡妹子', '酒吧', '蹦迪'] },
+      ]
+    }
+    const domStr = MUS_Template.render(template, data)
+    const box = document.getElementById('box')
+    box.innerHTML = domStr
+
+    // 测试
+    const
+  </script>
+</body>
+
+</html>
